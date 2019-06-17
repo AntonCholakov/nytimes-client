@@ -1,5 +1,5 @@
 import React from 'react';
-import enzyme from 'enzyme';
+import enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {ArticlesContainer} from './ArticlesContainer';
 
@@ -75,7 +75,7 @@ describe('Articles Container', () => {
     };
 
     it('should call getArticles() if there are no articles on render', () => {
-        enzyme.mount(
+        shallow(
             <ArticlesContainer articles={[]}
                                getArticles={props.getArticles}
                                selectArticle={props.selectArticle}/>
@@ -85,7 +85,7 @@ describe('Articles Container', () => {
     });
 
     it('should call getArticles() if there are articles on render', () => {
-        enzyme.mount(
+        shallow(
             <ArticlesContainer articles={props.articles}
                                getArticles={props.getArticles}
                                selectArticle={props.selectArticle}/>
@@ -95,7 +95,7 @@ describe('Articles Container', () => {
     });
 
     it('should render 3 articles on render', () => {
-        const wrapper = enzyme.mount(
+        const wrapper = shallow(
             <ArticlesContainer articles={props.articles}
                                getArticles={props.getArticles}
                                selectArticle={props.selectArticle}/>
@@ -106,7 +106,7 @@ describe('Articles Container', () => {
     });
 
     it('should call selectArticle onArticleClicked', () => {
-        const wrapper = enzyme.mount(
+        const wrapper = shallow(
             <ArticlesContainer {...props}/>
         );
 

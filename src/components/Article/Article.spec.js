@@ -1,39 +1,39 @@
 import React from 'react';
-import Enzyme, {shallow} from 'enzyme';
+import enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Article from './Article';
+import {Article} from './Article';
 
 let wrapper;
 let props;
 
-Enzyme.configure({adapter: new Adapter()});
+enzyme.configure({adapter: new Adapter()});
 
 describe('Article Component', () => {
 
-    beforeEach(() => {
-        props = {
-            article: {
-                id: 1,
-                title: 'Just a title',
-                byline: 'by John Doe',
-                published_date: '2019-05-19',
-                media: [
-                    {
-                        type: 'image',
-                        caption: 'Sample Caption',
-                        'media-metadata': [
-                            {
-                                url: 'http://placehold.it/180',
-                                width: 75,
-                                height: 75
-                            }
-                        ]
-                    }
-                ]
-            },
-            onArticleClick: jest.fn()
-        };
+    props = {
+        article: {
+            id: 1,
+            title: 'Just a title',
+            byline: 'by John Doe',
+            published_date: '2019-05-19',
+            media: [
+                {
+                    type: 'image',
+                    caption: 'Sample Caption',
+                    'media-metadata': [
+                        {
+                            url: 'http://placehold.it/180',
+                            width: 75,
+                            height: 75
+                        }
+                    ]
+                }
+            ]
+        },
+        onArticleClick: jest.fn()
+    };
 
+    beforeEach(() => {
         wrapper = shallow(<Article {...props} />)
     });
 

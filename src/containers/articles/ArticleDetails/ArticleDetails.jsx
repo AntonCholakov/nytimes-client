@@ -5,7 +5,7 @@ import {bindActionCreators} from "redux";
 import * as actions from '../../../actions';
 import styles from './ArticleDetails.module.css';
 
-class ArticleDetails extends Component {
+export class ArticleDetails extends Component {
 
     componentDidMount() {
         if (!this.props.selectedArticle) {
