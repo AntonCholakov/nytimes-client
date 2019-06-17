@@ -3,6 +3,11 @@ import {connect} from 'react-redux';
 import {Navbar, NavbarBrand, Toast, ToastBody, ToastHeader} from 'reactstrap';
 import Loader from '../../components/Loader/Loader';
 import PropTypes from "prop-types";
+import {
+    getArticlesErrorSelector,
+    getArticlesLoadingSelector,
+    getSelectedArticleSelector
+} from "../../reducers/selectors";
 
 class MainContainer extends Component {
     render() {
@@ -44,9 +49,9 @@ MainContainer.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        loading: state.article.loading,
-        error: state.article.error,
-        selectedArticle: state.article.selectedArticle
+        loading: getArticlesLoadingSelector(state),
+        error: getArticlesErrorSelector(state),
+        selectedArticle: getSelectedArticleSelector(state)
     }
 };
 

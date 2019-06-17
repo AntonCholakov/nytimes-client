@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {bindActionCreators} from "redux";
 import * as actions from '../../../actions';
 import styles from './ArticleDetails.module.css';
+import {getSelectedArticleSelector} from "../../../reducers/selectors";
 
 export class ArticleDetails extends Component {
 
@@ -80,7 +81,7 @@ ArticleDetails.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        selectedArticle: state.article.selectedArticle
+        selectedArticle: getSelectedArticleSelector(state)
     }
 };
 
