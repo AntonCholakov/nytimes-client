@@ -6,7 +6,7 @@ import * as actions from '../../../actions';
 import Article from '../../../components/Article/Article';
 import {getArticlesSelector} from "../../../reducers/selectors";
 
-class ArticlesContainer extends Component {
+export class ArticlesContainer extends Component {
 
     componentDidMount() {
         this.props.getArticles();
